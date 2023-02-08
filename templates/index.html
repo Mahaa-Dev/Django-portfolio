@@ -1,17 +1,57 @@
+{% load static %}
 <!DOCTYPE html>
-
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
-    </head>
-    <body>
-       
-        
-       
-    </body>
+  <head>
+    <title>Shiv</title>
+
+    <style>
+      body {
+        background-image: url('{% static "image/shiv.jpg" %}');
+        background-size: cover;
+        background-blur: 5px;
+        font-family: Arial, sans-serif;
+        color: white;
+        text-align: center;
+      }
+
+      .content {
+        padding: 100px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="content">
+      <h1 id="name"></h1>
+      <p id="title"></p>
+    </div>
+
+    <script>
+      const name = "{{ info.name }}".split(" ");
+      const title = "{{ info.title }}".split(" ");
+      let i = 0;
+      let j = 0;
+
+      function displayName() {
+        if (i < name.length) {
+          document.getElementById("name").innerHTML += name[i] + " ";
+          i++;
+          setTimeout(displayName, 500);
+        }
+      }
+
+      function displayTitle() {
+        if (j < title.length) {
+          document.getElementById("title").innerHTML += title[j] + " ";
+          j++;
+          setTimeout(displayTitle, 500);
+        }
+      }
+
+      displayName();
+      setTimeout(displayTitle, 500);
+    </script>
+  </body>
 </html>
