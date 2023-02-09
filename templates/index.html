@@ -2,56 +2,37 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Shiv</title>
-
-    <style>
-      body {
-        background-image: url('{% static "image/shiv.jpg" %}');
-        background-size: cover;
-        background-blur: 5px;
-        font-family: Arial, sans-serif;
-        color: white;
-        text-align: center;
-      }
-
-      .content {
-        padding: 100px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-    </style>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    {% comment %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    {% endcomment %}
   </head>
   <body>
-    <div class="content">
-      <h1 id="name"></h1>
-      <p id="title"></p>
-    </div>
 
-    <script>
-      const name = "{{ info.name }}".split(" ");
-      const title = "{{ info.title }}".split(" ");
-      let i = 0;
-      let j = 0;
+      <div class="content">
+        <h1>Hi, I'm</h1>
+        <h2 id="name">{{info.name}}</h2>
+        <p id="title">{{info.title}}</p>
 
-      function displayName() {
-        if (i < name.length) {
-          document.getElementById("name").innerHTML += name[i] + " ";
-          i++;
-          setTimeout(displayName, 500);
-        }
-      }
+        
 
-      function displayTitle() {
-        if (j < title.length) {
-          document.getElementById("title").innerHTML += title[j] + " ";
-          j++;
-          setTimeout(displayTitle, 500);
-        }
-      }
+        <nav id="navbar" class="navbar">
+          <ul>
+            <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+            <li><a class="nav-link scrollto" href={% url 'about' %}>About</a></li>
+            <li><a class="nav-link  scrollto" href="#portfolio">Portfolio</a></li>
+            <li><a class="nav-link  scrollto" href="#journal">Blog</a></li>
+            
+            <li><a class="nav-link scrollto" href="{% url 'contact' %}">Contact</a></li>
+          </ul>
+          <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav><!-- .navbar -->
+  
 
-      displayName();
-      setTimeout(displayTitle, 500);
-    </script>
+   
   </body>
 </html>

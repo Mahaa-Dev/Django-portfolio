@@ -2,8 +2,9 @@ from django.contrib import admin
 
 # Register your models here.
 
-from .models import PersonalInfo
+from .models import PersonalInfo, Contact
 
 admin.site.register([
-    PersonalInfo
+    PersonalInfo,
+    Contact
 ])
