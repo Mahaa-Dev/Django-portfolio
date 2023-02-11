@@ -1,4 +1,3 @@
-{% load static %}
 <!DOCTYPE html>
 <html>
   <head>
@@ -7,32 +6,127 @@
     <title>Shiv</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    {% comment %}
-    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
-    {% endcomment %}
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
   </head>
   <body>
-
-      <div class="content">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#portfolio">Project</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#message">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- end of navbar-->
+    <div class="d-flex align-items-center" style="height: 100vh">
+      <div class="content text-center" style="width: 50%">
         <h1>Hi, I'm</h1>
         <h2 id="name">{{info.name}}</h2>
         <p id="title">{{info.title}}</p>
+      </div>
+      <div
+        style="width: 50%; background-image: url({{ about.profile_picture.url }}); background-size: cover; height: 100%;"
+      ></div>
+    </div>
+    <script>
+      $(document).ready(function () {
+        var words = $("#title").text().split(" ");
+        var text = "";
+        for (var i = 0; i < words.length; i++) {
+          text += "<span>" + words[i] + "</span> ";
+        }
+        $("#title").html(text);
+        var counter = 0;
+        var delay = 100;
+        $("#title span").each(function () {
+          $(this).delay(counter).fadeIn();
+          counter += delay;
+        });
+      });
+    </script>
 
-        
+    <!-- about.html -->
+    <div id="about">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <h1 class="text-center my-5">{{ about.name }}</h1>
+            <p class="lead">{{ about.bio }}</p>
+          </div>
+          <div class="col-md-6">
+            <img
+              src="{{ about.profile_picture.url }}"
+              class="img-fluid rounded-circle float-right"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <br />
 
-        <nav id="navbar" class="navbar">
-          <ul>
-            <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-            <li><a class="nav-link scrollto" href={% url 'about' %}>About</a></li>
-            <li><a class="nav-link  scrollto" href="#portfolio">Portfolio</a></li>
-            <li><a class="nav-link  scrollto" href="#journal">Blog</a></li>
-            
-            <li><a class="nav-link scrollto" href="{% url 'contact' %}">Contact</a></li>
-          </ul>
-          <i class="bi bi-list mobile-nav-toggle"></i>
-        </nav><!-- .navbar -->
-  
+    <!--Contact.html-->
+    <div id="message">
+      <h3>Contact Me</h3>
+      <hr />
+      <form method="post">
+        {% csrf_token %}
+        <div class="form-group">{{ form.as_p }}</div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
 
-   
+    <hr />
+
+    <!--end of contact form-->
   </body>
+
+  <!--bootsrap js-->
+  <script
+    src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+    crossorigin="anonymous"
+  ></script>
+  <footer class="bg-light py-3">
+    <div class="container">
+      <p class="text-center">Copyright &copy; {{ 2023 }}</p>
+    </div>
+  </footer>
 </html>

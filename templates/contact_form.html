@@ -14,17 +14,14 @@
       type="text/css"
       href="{% static 'css/style.css' %}"
     />
-
-    {% comment %}
-    <link rel="stylesheet" href="{% static 'style.css' %}" />
-    {% endcomment %}
   </head>
   <body>
     <h3>Contact Me</h3>
     <hr />
     <form method="post">
-      {%csrf_token%} {{form.as_p}}
-      <input type="submit" class="btn btn-primary" />
+      {% csrf_token %}
+      <div class="form-group">{{ form.as_p }}</div>
+      <button type="submit" class="btn btn-primary">Submit</button>
     </form>
   </body>
 </html>

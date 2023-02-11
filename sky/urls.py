@@ -1,8 +1,11 @@
 from django.urls import path
-from .views import HomePageView, About, ContactCreate
+from .views import HomePageView, About, ContactCreate, ProjectDetailView
 
 urlpatterns = [
-    path("", HomePageView.as_view(), name='Home'),
-    path("about/", About.as_view(), name='about'),
-    path("contact/", ContactCreate.as_view(), name="contact")
+    path("", HomePageView.as_view(), name='home'),
+
+    path("contact/", ContactCreate.as_view(), name="contact"),
+
+    path('project/<int:pk>/', ProjectDetailView.as_view(), name='project_detail')
+
 ]

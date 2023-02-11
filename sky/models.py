@@ -22,3 +22,20 @@ class Contact(models.Model):
 
     def __str__(self):
         return f"{self.name} - {self.subject}"
+
+
+class About(models.Model):
+    name = models.CharField(max_length=100)
+    bio = models.TextField()
+    profile_picture = models.ImageField(upload_to='picture/')
+
+    def __str__(self):
+        return self.name
+
+
+class Project(models.Model):
+    title = models.CharField(max_length=100)
+    details = models.TextField()
+
+    def __str__(self):
+        return self.title
