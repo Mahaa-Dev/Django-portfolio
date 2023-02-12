@@ -1,12 +1,15 @@
 from django.shortcuts import render
 
-from django.views.generic import TemplateView, CreateView, DetailView
+from django.views.generic import TemplateView, CreateView, DetailView, ListView
 
-from .models import PersonalInfo, Contact, About, Project
+from .models import PersonalInfo, Contact, About, Project, Education, CurrentJob
 from .forms import ContactForm
 
 
 # Create your views here.
+class TempView(TemplateView):
+    template_name = 'a.html'
+
 
 class HomePageView(TemplateView):
     template_name = 'index.html'
@@ -16,7 +19,10 @@ class HomePageView(TemplateView):
         context["info"] = PersonalInfo.objects.get(id=1)
         context["about"] = About.objects.last()
         context["form"] = ContactForm()
-        context["project"] = Project.objects.all()
+        context["posts"] = Project.objects.all()
+
+        context["learning"] = Education.objects.all()
+        context['current_jobs'] = CurrentJob.objects.all()
 
         return context
 
@@ -35,3 +41,10 @@ class ContactCreate(CreateView):
 class ProjectDetailView(DetailView):
     model = Project
     template_name = 'project_view.html'
+    context_object_name = 'post'
+
+
+class EducationView(ListView):
+    model = Education
+    template_name = 'index.html'
+    context_object_name = 'education'
