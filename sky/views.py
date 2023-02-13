@@ -7,8 +7,7 @@ from .forms import ContactForm
 
 
 # Create your views here.
-class TempView(TemplateView):
-    template_name = 'a.html'
+
 
 
 class HomePageView(TemplateView):
