@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.core.mail import send_mail
 
 from django.views.generic import TemplateView, CreateView, DetailView, ListView
 
@@ -35,6 +36,20 @@ class ContactCreate(CreateView):
     model = Contact
     form_class = ContactForm
     success_url = "/"
+    
+    def form_valid(self, form):
+        form.save()
+        message = f"Name: {form.cleaned_data['name']}\nEmail: {form.cleaned_data['email']}\nMessage: {form.cleaned_data['message']}"
+        send_mail(
+            'New message from your website',
+            message,
+            'shivyadav630@gmail.com',
+            ['shivyadav630@gmail.com'],
+            fail_silently=False,
+        )
+        return super().form_valid(form)
+    
+    
 
 
 class ProjectDetailView(DetailView):

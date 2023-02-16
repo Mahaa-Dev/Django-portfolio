@@ -27,7 +27,22 @@
   <style>
     .hero-section {
       background-image: url({{ about.profile_picture.url }});
+
+
       height: 100vh;
+    }
+
+
+
+    @media screen (min-width:576px) {
+      .hero-section {
+        background-size: cover;
+        background-repeat: no-repeat;
+
+        background-position: center;
+      }
+
+
     }
   </style>
 </head>
@@ -75,9 +90,10 @@
           </ul>
 
           <ul class="navbar-nav d-flex flex-row justify-content-end my-links">
-            
+
             <li class="nav-item me-3 ">
-              <a class="nav-link" href="https://www.facebook.com/profile.php?id=100005949692756" rel="nofollow" target="_blank">
+              <a class="nav-link" href="https://www.facebook.com/profile.php?id=100005949692756" rel="nofollow"
+                target="_blank">
                 <i class="fab fa-facebook-f"></i>
               </a>
             </li>
