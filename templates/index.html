@@ -7,130 +7,119 @@
   <title>Shiv</title>
   <meta name="description" content="" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- local css -->
+  <link rel="stylesheet" href="/static/css/style.css">
+
+  <!-- bootstrap cdn link -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
     integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+
+  <!-- new bootstrap cdn link (5.3 version) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+  <!-- fontawesome css link -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
     integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
 
+
+  <style>
+    .hero-section {
+      background-image: url({{ about.profile_picture.url }});
+      height: 100vh;
+    }
+  </style>
 </head>
 
 <body>
 
-  <style>
-    #intro {
-      background-image: url({{ about.profile_picture.url }});
-      height: 100vh;
 
-
-    }
-
-    /* Height for devices larger than 576px */
-    @media (min-width: 992px) {
-      #intro {
-        margin-top: -58.59px;
-      }
-    }
-
-    .navbar .nav-link {
-      color: #fff !important;
-    }
-  </style>
   <!--navbar start-->
-  <nav class="navbar navbar-expand-lg navbar-dark d-none d-lg-block" style="z-index: 2000;">
-    <div class="container-fluid">
-      <!-- Navbar brand -->
-      <a class="navbar-brand nav-link" target="_blank" href="#">
-        <strong>My Portfolio
-        </strong>
-      </a>
-      <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarExample01"
-        aria-controls="navbarExample01" aria-expanded="false" aria-label="Toggle navigation">
-        <i class="fas fa-bars"></i>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarExample01">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item active">
-            <a class="nav-link" aria-current="page" href="#intro">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#about">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#project">Project</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#message">Contact</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-              aria-haspopup="true" aria-expanded="false">
-              My Learning
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#edu">Education Background</a>
-              <a class="dropdown-item" href="#current_job">Current Job</a>
-            </div>
-          </li>
+  <div class="hero-section mb-4 d-flex flex-column position-relative">
+    <nav class="navbar navbar-expand-lg d-none d-lg-block bg-light-subtle fixed-top border-bottom">
+      <div class="container">
+        <!-- Navbar brand -->
+        <a class="navbar-brand nav-link" target="_blank" href="#">
+          <p class="fs-4 fw-bolder text-dark m-0">My Portfolio</p>
+        </a>
+        <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarExample01"
+          aria-controls="navbarExample01" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarExample01">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item active">
+              <a class="nav-link" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#project">Project</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#message">Contact</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                My Learning
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#edu">Education Background</a>
+                <a class="dropdown-item" href="#current_job">Current Job</a>
+              </div>
+            </li>
 
-        </ul>
+          </ul>
 
-        <ul class="navbar-nav d-flex flex-row justify-content-end">
-          <!-- Icons -->
-          <li class="nav-item me-3 me-lg-0">
-            <a class="nav-link" href="https://www.youtube.com/channel/UC5CF7mLQZhvx8O5GODZAhdA" rel="nofollow"
-              target="_blank">
-              <i class="fab fa-youtube"></i>
-            </a>
-          </li>
-          <li class="nav-item me-3 me-lg-0">
-            <a class="nav-link" href="https://www.facebook.com/mdbootstrap" rel="nofollow" target="_blank">
-              <i class="fab fa-facebook-f"></i>
-            </a>
-          </li>
-          <li class="nav-item me-3 me-lg-0">
-            <a class="nav-link" href="https://twitter.com/MDBootstrap" rel="nofollow" target="_blank">
-              <i class="fab fa-twitter"></i>
-            </a>
-          </li>
-          <li class="nav-item me-3 me-lg-0">
-            <a class="nav-link" href="https://github.com/mdbootstrap/mdb-ui-kit" rel="nofollow" target="_blank">
-              <i class="fab fa-github"></i>
-            </a>
-          </li>
-        </ul>
-
-
-      </div>
-    </div>
-  </nav>
-
-
-  <!-- Background image -->
-
-  <div id="intro" class="bg-image shadow-2-strong p-5">
-    <div class="mask" style="background-color: rgba(0, 0, 0, 0.8);">
-      <div class="container d-flex align-items-center justify-content-center text-center h-100">
-        <div class="d-flex flex-column align-items-center justify-content-center text-center text-white">
-          <h1 class="d-block ">Hi, I'm </h1>
-          <br>
-          <h2 class="d-block ">{{info.name}}</h2>
-          <br>
-          <p class="d-block">{{info.title}}</p>
+          <ul class="navbar-nav d-flex flex-row justify-content-end my-links">
+            <!-- Icons -->
+            <!-- <li class="nav-item me-3"> -->
+              <!-- <a class="nav-link" href="https://www.youtube.com/channel/UC5CF7mLQZhvx8O5GODZAhdA" rel="nofollow" -->
+                <!-- target="_blank"> -->
+                <!-- <i class="fab fa-youtube"></i> -->
+              <!-- </a> -->
+            <!-- </li> -->
+            <li class="nav-item me-3 ">
+              <a class="nav-link" href="https://www.facebook.com/mdbootstrap" rel="nofollow" target="_blank">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+            </li>
+            <li class="nav-item me-3 ">
+              <a class="nav-link" href="https://twitter.com/MDBootstrap" rel="nofollow" target="_blank">
+                <i class="fab fa-twitter"></i>
+              </a>
+            </li>
+            <li class="nav-item me-3 ">
+              <a class="nav-link" href="https://github.com/mdbootstrap/mdb-ui-kit" rel="nofollow" target="_blank">
+                <i class="fab fa-github"></i>
+              </a>
+            </li>
+          </ul>
         </div>
+      </div>
+    </nav>
+    <!-- Background image -->
+    <div id="intro" class="position-absolute rounded p-3">
+      <div class="d-flex flex-column align-items-center justify-content-center text-center text-light">
+        <p class="m-0 fs-2">Hi, I'm </p>
+        <p class="m-0 fs-1 fw-bolder text-decoration-underline">{{info.name}}</p>
+        <p class="m-0 fs-6 fw-bold">{{info.title}}</p>
       </div>
     </div>
   </div>
-
   <!-- about.html -->
-  <div id="about">
+  <div id="about" class="mb-4">
     <div class="container">
       <div class="row">
         <div class="col-md-6">
-          <h1 class="text-center my-5">{{ about.name }}</h1>
+          <p class="text-center my-5 text-decoration-underline fs-1 fw-bolder">{{ about.name }}</p>
           <p class="lead">{{ about.bio }}</p>
         </div>
         <div class="col-md-6">
-          <img src="{{ about.profile_picture.url }}" class="img-fluid rounded-circle float-right" />
+          <img src="{{ about.profile_picture.url }}" class="img-fluid rounded" />
         </div>
       </div>
     </div>
@@ -138,25 +127,24 @@
   <br />
 
   <!--My Learning-->
-  <div id="edu">
-    <div class="container">
-      <h1 class="text-center mt-3">Education Background</h1>
-      <div class="row">
+  <div id="edu" class="mb-4">
+    <div class="container border rounded bg-secondary-subtle">
+      <p class="text-center pb-3 text-decoration-underline fs-1 fw-bolder">Education Background</p>
+      <div class="row ">
         {% for education in learning %}
-        <div class="col-md-6 mt-3">
+        <div class="col-md-6 d-flex flex-wrap py-2">
           <div class="card">
-            <div class="card-header">{{ education.school }}</div>
+            <div class="card-header fw-bold">{{ education.school }}</div>
             <div class="card-body">
-              <p class="card-text">Degree: {{ education.degree }}</p>
-              <p class="card-text">
-                Field of Study: {{ education.field_of_study }}
+              <p class="card-text text-muted">Degree: <span class="fw-bold text-dark">{{ education.degree }}</span></p>
+              <p class="card-text text-muted">
+                Field of Study: <span class="fw-bold text-dark">{{ education.field_of_study }}</span>
               </p>
-              <p class="card-text">
-                Duration: {{ education.start_date }} - {{ education.end_date
-                }}
+              <p class="card-text text-muted">
+                Duration: <span class="fw-bold text-dark">{{ education.start_date }} - {{ education.end_date}}</span>
               </p>
-              <p class="card-text">
-                Description: {{ education.description }}
+              <p class="card-text text-muted">
+                Description: <span class="fw-bold text-dark">{{ education.description }}</span>
               </p>
             </div>
           </div>
@@ -169,14 +157,18 @@
   <!--My Learning-->
 
   <!--Job -->
-  <div id="current_job">
+  <div id="current_job" class="container mb-4 bg-secondary-subtle p-3 border rounded">
+    <p class="fs-1 text-center fw-bolder text-decoration-underline">My Current Job</p>
     {% if current_jobs %}
-    <div class="card mb-3">
+    <div class="card">
       <div class="card-header">
-        <h3>{{ current_jobs.last.job_title }} at {{ current_jobs.last.company }}</h3>
-        <p>{{ current_jobs.last.start_date }} - {% if current_jobs.last.end_date %}{{ current_jobs.last.end_date }}{%
-          else
-          %}Present{% endif %}</p>
+        <h3 class="text-decoration-underline">{{ current_jobs.last.job_title }} at {{ current_jobs.last.company }}</h3>
+        <p class="px-3">{{ current_jobs.last.start_date }} - {% if current_jobs.last.end_date %}{{
+          current_jobs.last.end_date }}
+          {%else%}
+          Present
+          {% endif %}
+        </p>
       </div>
       <div class="card-body">
         <p>{{ current_jobs.last.description }}</p>
@@ -189,63 +181,79 @@
 
   <!--Job -->
   <!--project-->
-  <div id="project">
-    <h1>Projects</h1>
-    {% for post in posts %}
-    <a href="{% url 'project_detail' post.pk %}">{{ post.title }}</a><br />
-    {% endfor %}
+  <div id="project" class="container p-3 mb-4">
+    <div class="row g-3">
+      <div class="col-md-6 col-sm-12">
+        <p class=" m-auto fs-3 fw-bolder">Projects : </p>
+      </div>
+      <div class="col-md-6 col-sm-12">
+        <ul>
+          {% for post in posts %}
+          <li class="p-2">
+            <a href="{% url 'project_detail' post.pk %}" class="btn btn-primary">{{ post.title }}</a><br />
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
   </div>
   <!--project-->
 
   <!--Contact.html-->
-  <div id="message">
-    <h3>Contact Me</h3>
-    <hr />
-    <form method="post">
+  <div id="message" class="container p-3 rounded bg-secondary-subtle mb-4">
+    <p class="border-bottom pb-3 fw-bolder fs-3 m-0">Contact Me : </p>
+    <form method="post" action="{%url 'contact'%}" class="">
       {% csrf_token %}
       <div class="form-group">{{ form.as_p }}</div>
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="submit" class="btn btn-primary text-center w-100">Submit</button>
     </form>
   </div>
-
-  <hr />
 
   <!--end of contact form-->
 </body>
 
-<!--bootsrap js-->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-  integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-  integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-  integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-<footer class="bg-light text-lg-start">
+
+<div class="text-center mb-4 align-items-center">
+  <p class="fw-bold fs-6">Follow Me On <span class="fs-4 text-uppercase ps-2"> Social Media</span></p>
+  <a href="https://www.facebook.com/mdbootstrap" class="btn btn-primary m-1" role="button" rel="nofollow"
+    target="_blank">
+    <i class="fab fa-facebook-f"></i>
+  </a>
+  <a href="https://twitter.com/MDBootstrap" class="btn btn-primary m-1" role="button" rel="nofollow" target="_blank">
+    <i class="fab fa-twitter"></i>
+  </a>
+  <a href="https://github.com/mdbootstrap/mdb-ui-kit" class="btn btn-primary m-1" role="button" rel="nofollow"
+    target="_blank">
+    <i class="fab fa-github"></i>
+  </a>
+</div>
+
+<!-- Copyright -->
+<div class="text-center p-3 bg-dark-subtle">
+  © 2023 Copyright:
 
 
-  <hr class="m-0" />
+  <!--jquery js-->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <!-- bootstrap js -->
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+    crossorigin="anonymous"></script>
+  <!-- new bootstrap script cdn (5.3 version) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"></script>
 
-  <div class="text-center py-4 align-items-center">
-    <p>Follow Me on social media</p>
-    <a href="https://www.facebook.com/mdbootstrap" class="btn btn-primary m-1" role="button" rel="nofollow"
-      target="_blank">
-      <i class="fab fa-facebook-f"></i>
-    </a>
-    <a href="https://twitter.com/MDBootstrap" class="btn btn-primary m-1" role="button" rel="nofollow" target="_blank">
-      <i class="fab fa-twitter"></i>
-    </a>
-    <a href="https://github.com/mdbootstrap/mdb-ui-kit" class="btn btn-primary m-1" role="button" rel="nofollow"
-      target="_blank">
-      <i class="fab fa-github"></i>
-    </a>
-  </div>
 
-  <!-- Copyright -->
-  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-    © 2023 Copyright:
+  <footer class="bg-light text-lg-start">
 
-  </div>
-  <!-- Copyright -->
+</div>
+<!-- Copyright -->
 </footer>
 <!--Footer-->
 
