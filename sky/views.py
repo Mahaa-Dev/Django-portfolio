@@ -31,8 +31,8 @@ class HomePageView(TemplateView):
 
 
 class ContactCreate(CreateView):
-    template_name = "contact_form.html"
     model = Contact
+    template_name = "contact_form.html"
     form_class = ContactForm
     success_url = "/"
 

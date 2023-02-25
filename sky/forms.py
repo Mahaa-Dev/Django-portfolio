@@ -11,3 +11,18 @@ class ContactForm(forms.ModelForm):
             "subject",
             "message",
         )
+        widgets = {
+            "name": forms.TextInput(attrs={"class": "form-control"}),
+            "email": forms.EmailInput(attrs={"class": "form-control"}),
+            "subject": forms.TextInput(attrs={"class": "form-control"}),
+            "message": forms.Textarea(attrs={"class": "form-control"}),
+        }
+        labels = {
+            "name": "Name",
+            "email": "Email",
+            "subject": "Subject",
+            "message": "Message",
+        }
+        label_attrs = {
+            "class": "form-label",
+        }
