@@ -27,9 +27,10 @@
   <style>
     .hero-section {
       background-image: url({{ about.profile_picture.url }});
-
-
       height: 100vh;
+      background-size: cover;
+      background-position: top 20% left 60%;
+      background-repeat: no-repeat;
     }
 
 
@@ -38,8 +39,13 @@
       .hero-section {
         background-size: cover;
         background-repeat: no-repeat;
-
         background-position: center;
+        position: unset !important;
+      }
+
+      #intro {
+        position: unset !important;
+        margin-top: 400px;
       }
 
 
@@ -51,11 +57,11 @@
 
 
   <!--navbar start-->
-  <div class="hero-section mb-4 d-flex flex-column position-relative">
+  <div class="hero-section mb-4 d-flex flex-column position-relative" id="home-page">
     <nav class="navbar navbar-expand-lg d-none d-lg-block bg-light-subtle fixed-top border-bottom">
       <div class="container">
         <!-- Navbar brand -->
-        <a class="navbar-brand nav-link" target="_blank" href="#">
+        <a class="navbar-brand nav-link" href="#home-page">
           <p class="fs-4 fw-bolder text-dark m-0">My Portfolio</p>
         </a>
         <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarExample01"
@@ -65,7 +71,7 @@
         <div class="collapse navbar-collapse" id="navbarExample01">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item active">
-              <a class="nav-link" aria-current="page" href="#">Home</a>
+              <a class="nav-link" aria-current="page" href="#home-page">Home</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#about">About</a>
@@ -172,7 +178,10 @@
     {% if current_jobs %}
     <div class="card">
       <div class="card-header">
-        <h3 class="text-decoration-underline">{{ current_jobs.last.job_title }} at {{ current_jobs.last.company }}</h3>
+        <a href="https://heraldcollege.edu.np/" class="text-decoration-none text-dark" target="_blank">
+          <h3 class="text-decoration-underline">{{ current_jobs.last.job_title }} at {{ current_jobs.last.company }}
+          </h3>
+        </a>
         <p class="px-3">{{ current_jobs.last.start_date }} - {% if current_jobs.last.end_date %}{{
           current_jobs.last.end_date }}
           {%else%}
@@ -257,6 +266,9 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
     crossorigin="anonymous"></script>
+
+  <!-- custom js -->
+  <script src="/static/js/main.js"></script>
 
 
   <footer class="bg-light text-lg-start">
