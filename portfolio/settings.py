@@ -26,7 +26,7 @@ SECRET_KEY = "django-insecure-1nqc#ak*0iie703qzvsb=v9e1m2*n%nis0jfw-+fpa-s5=a684
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.vercel.app', '.now.sh']
+ALLOWED_HOSTS = ['.vercel.app', '.now.sh', '127.0.0.1']
 
 
 # Application definition
@@ -79,6 +79,9 @@ DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
         "NAME": BASE_DIR / "db.sqlite3",
+        'OPTIONS': {
+            'deterministic': True,
+        }
     }
 }
 
